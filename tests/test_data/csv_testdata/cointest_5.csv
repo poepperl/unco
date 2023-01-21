@@ -1,4 +1,4 @@
-id,Mint,Material,Denomination
+id_coin,nmo:mint,nmo:material,nmo:denomination
 4,,av,as
 5,rome,ae,
 6,nemausus,av,sestertius

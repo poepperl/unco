@@ -8,21 +8,24 @@ class Reader:
         Class that reads a file and creates a CSV object.
 
         Arguments:
-            docpath: Path to the input file
+            docpath: Path to the input file.
     """
-
-    path: str
-    type: str
 
     def __init__(self, docpath: str) -> None:
         self.path = docpath
+        self.type : str
+
         self.initialise_type()
 
     def initialise_type(self) -> None:
+        """
+            Extract the file type from the path.
+        """
+
         self.type = self.path[self.path.rfind(".")+1:]
 
         if len(self.type) > 4:
-            print(Fore.RED + "Please enter a complete path with datatype-prefix!" + Fore.RESET)
+            print(Fore.RED + "Error: Please enter a complete path with datatype-prefix!" + Fore.RESET)
 
     def read(self) -> pd.DataFrame:
         """
@@ -35,9 +38,9 @@ class Reader:
                 return pd.read_csv(file)
 
             except FileNotFoundError:
-                print(Fore.RED + "Warning: There is no CSV file on this path." + Fore.RESET)
+                print(Fore.RED + "Error: There is no CSV file on this path." + Fore.RESET)
         
         elif self.type == "pdf":
-            print(Fore.RED + "Warning: PDF not aviable." + Fore.RESET)
+            print(Fore.RED + "Error: PDF not aviable." + Fore.RESET)
         else:
-            print(Fore.RED + "Warning: Unknown File-Type!" + Fore.RESET)
+            print(Fore.RED + "Error: Unknown File-Type!" + Fore.RESET)
