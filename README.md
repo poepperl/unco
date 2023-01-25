@@ -67,3 +67,4 @@ Create package
 python src/setup.py sdist
 ```
 
+git clone https://HerrScrumbleton@bitbucket.org/uncertaintyco/unco.git
